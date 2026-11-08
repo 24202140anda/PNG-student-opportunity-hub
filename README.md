@@ -1,56 +1,93 @@
-# Welcome to your Expo app 👋
+# PNG Student Opportunity Hub
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile app that gives Papua New Guinean students one place to find and track scholarships, study programmes, internships, graduate jobs and apprenticeships, instead of searching many different websites.
 
-## Get started
+Developed for IS323 Mobile Application Development, PNG University of Technology.
+Student: YOUR NAME (YOUR STUDENT ID)
 
-1. Install dependencies
+## What the app does
 
-   ```bash
-   npm install
-   ```
+**Students**
 
-2. Start the app
+- Register and log in
+- Search opportunities and filter by category and by province
+- See how many days are left before each deadline
+- Save opportunities and see them in a Saved list
+- See a deadline reminder banner for saved opportunities that close within 7 days
+- Open the official application page for each opportunity
+- See country details and a USD to kina conversion for overseas scholarships
 
-   ```bash
-   npx expo start
-   ```
+**Companies and organizations**
 
-In the output, you'll find options to open the app in a
+- Register as a Company or Organization
+- After an admin verifies them, post, edit and delete their own listings
+- See how many students saved each listing
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+**Admin**
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Verify organizations
+- Approve or reject listings before students can see them
+- Add, edit and delete any listing
 
-## Get a fresh project
+## Technology
 
-When you're ready, run:
+- React Native with Expo (SDK 57) and TypeScript
+- Expo Router for navigation (tabs and stacks)
+- Supabase for login, the PostgreSQL database and row level security
+- Two public APIs: REST Countries and ExchangeRate API
+- react-native-svg for icons and the logo
+- EAS Build to produce the Android APK
+
+## How to run it
+
+1. Install Node.js, then clone the project:
 
 ```bash
-npm run reset-project
+git clone https://github.com/24202140anda/PNG-student-opportunity-hub.git
+cd PNG-student-opportunity-hub
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Start the app:
 
-### Other setup steps
+```bash
+npx expo start
+```
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+3. Press `w` to open it in the browser, or scan the QR code with the Expo Go app on an Android phone.
 
-## Learn more
+The Supabase address and public key are already set in `src/lib/supabase.ts`, so no extra setup is needed. The Supabase project is on the free plan and pauses after about a week without use. If the app shows "No connection", the project may need restoring in the Supabase dashboard.
 
-To learn more about developing your project with Expo, look at the following resources:
+## Test accounts
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+| Role    | Email         | Password |
+| ------- | ------------- | -------- |
+| Student | STUDENT EMAIL | PASSWORD |
+| Company | COMPANY EMAIL | PASSWORD |
+| Admin   | ADMIN EMAIL   | PASSWORD |
 
-## Join the community
+## Android APK
 
-Join our community of developers creating universal apps.
+APK download link: ADD YOUR EAS BUILD LINK HERE
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Folder structure
+
+```text
+src/app/          screens and navigation (auth, tabs, opportunity)
+src/components/   reusable parts (logo, icons, cards, chips, reminder banner)
+src/context/      login state
+src/lib/          Supabase client, constants, helpers
+src/services/     database and API calls
+```
+
+## Security
+
+Row level security in Supabase means students only read approved listings, organizations only change their own listings, and only admins approve listings or verify organizations. The public key in the app is designed to be public. No secret keys are stored in this project.
+
+## Planned improvements
+
+- In-app applications and an applicants screen for organizations
+- Forgot password
+- Phone notifications for deadlines (work in the installed APK, not in Expo Go)
+- Tok Pisin language option
+- Offline copy of the opportunity list
