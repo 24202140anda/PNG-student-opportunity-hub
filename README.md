@@ -9,7 +9,7 @@ Student: ANNELISH DAVID (24202140)
 
 **Android phone (recommended)**
 
-1. Open this link on an Android phone and download the APK: PASTE YOUR GOOGLE DRIVE APK LINK HERE
+1. Open this link on an Android phone and download the APK: https://drive.google.com/file/d/1d017-lIJEmR4dCOXmGa-uoh07Ls5aR3r/view?usp=sharing
 2. Open the downloaded file. If Android asks, allow "Install unknown apps" for your browser, then tap Install.
 3. Open PNG Student Opportunity Hub and log in with one of the test accounts below.
 
